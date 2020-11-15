@@ -1,9 +1,10 @@
-apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.paz-lavi'
+
 
 plugins {
     id 'com.android.library'
 }
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.paz-lavi'
 
 android {
     compileSdkVersion 30
