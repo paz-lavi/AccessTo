@@ -1,10 +1,24 @@
 # Welcome to Access To!
 
 [![](https://jitpack.io/v/paz-lavi/AccessTo.svg)](https://jitpack.io/#paz-lavi/AccessTo) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/paz-lavi/AccessTo/blob/master/LICENSE)
+## Table of Contents
+* [What Is It for](https://github.com/paz-lavi/AccessTo/blob/master/README.md#what-is-it-for)
+* [Sample App](https://github.com/paz-lavi/AccessTo/blob/master/README.md#sample-app)
+* [Intgration](https://github.com/paz-lavi/AccessTo/blob/master/README.md#integration)
+* [How To Use](https://github.com/paz-lavi/AccessTo/blob/master/README.md#how-to-use)
+* [API](https://github.com/paz-lavi/AccessTo/blob/master/README.md#api)
+* [Callbacks](https://github.com/paz-lavi/AccessTo/blob/master/README.md#callbacks)
+* [License](https://github.com/paz-lavi/AccessTo/blob/master/README.md#license) 
+
+
 ## What Is It for
 
 An android package to handle permissions easily. With this package, you will never get stuck on "don't ask me again".
 Ask permissions with dialog and transfer to the app setting to garnt permissions if needed.
+
+## Sample App
+Sample app can be found [here](https://github.com/paz-lavi/AccessToDemo)
+
 ## Integration
 
 Add it in your root build.gradle at the end of repositories:
@@ -20,7 +34,7 @@ Add the dependency
 
 ```css
 	dependencies {
-	        implementation 'com.github.paz-lavi:AccessTo:Tag'
+	        implementation 'com.github.paz-lavi:AccessTo:1.0.7'
 	}
 ```
 ##  How To Use
@@ -83,7 +97,7 @@ protected void onActivityResult(int requestCode, int resultCode, @Nullable Inten
 **3.** Now you can use any of the API method
 
 ## API
-### Note: when using method witout passing GrantListener the libary will use the last used GrantListener. 
+### Note: when using method without passing GrantListener the libary will use the last used GrantListener. 
 * **Request Permissions:** request permissions from the user.
 ```Java
 public void requestPermissions(@NonNull String[] permissions, @NonNull GrantListener grantListener) 	
