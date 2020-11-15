@@ -97,7 +97,7 @@ protected void onActivityResult(int requestCode, int resultCode, @Nullable Inten
 **3.** Now you can use any of the API method
 
 ## API
-### Note: when using method witout passing GrantListener the libary will use the last used GrantListener. 
+### Note: when using method without passing GrantListener the libary will use the last used GrantListener. 
 * **Request Permissions:** request permissions from the user.
 ```Java
 public void requestPermissions(@NonNull String[] permissions, @NonNull GrantListener grantListener) 	
