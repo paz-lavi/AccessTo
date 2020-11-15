@@ -1,4 +1,4 @@
-# Welcome to AccessTO!
+# Welcome to Access To!
 
 [![](https://jitpack.io/v/paz-lavi/AccessTo.svg)](https://jitpack.io/#paz-lavi/AccessTo) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/paz-lavi/AccessTo/blob/master/LICENSE)
 ## What Is for
