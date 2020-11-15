@@ -94,10 +94,10 @@ public void requestPermissions(@NonNull String[] permissions)
 
 * **Ask Permissions From Setting:** request the user to grant permissions from the app setting with dialog first. 
 ```Java
-public void askPermissionsFromSetting(String msg, DialogListener dialogListener)	
+public void askPermissionsFromSetting(String msg, String[] permissions, DialogListener dialogListener)	
 ```
 ```Java
-public void askPermissionsFromSetting(String msg, @NonNull GrantListener grantListener, DialogListener dialogListener) 
+public void askPermissionsFromSetting(String msg, String[] permissions, @NonNull GrantListener grantListener, DialogListener dialogListener) 
 ```
 
 *  **Request Permissions With Force:** request permissions from the user. in the user select "don't ask me again" dialog will open.  if select "re-try" button the user will transfer to app setting to grant permissions
