@@ -1,6 +1,16 @@
 # Welcome to Access To!
 
 [![](https://jitpack.io/v/paz-lavi/AccessTo.svg)](https://jitpack.io/#paz-lavi/AccessTo) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/paz-lavi/AccessTo/blob/master/LICENSE)
+## Table of Contents
+* [What Is It for](https://github.com/paz-lavi/AccessTo/blob/master/README.md#what-is-it-for)
+* [Sample App](https://github.com/paz-lavi/AccessTo/blob/master/README.md#sample-app)
+* [Intgration](https://github.com/paz-lavi/AccessTo/blob/master/README.md#integration)
+* [How To Use](https://github.com/paz-lavi/AccessTo/blob/master/README.md#how-to-use)
+* [API](https://github.com/paz-lavi/AccessTo/blob/master/README.md#api)
+* [Callbacks](https://github.com/paz-lavi/AccessTo/blob/master/README.md#callbacks)
+* [License](https://github.com/paz-lavi/AccessTo/blob/master/README.md#license) 
+
+
 ## What Is It for
 
 An android package to handle permissions easily. With this package, you will never get stuck on "don't ask me again".
