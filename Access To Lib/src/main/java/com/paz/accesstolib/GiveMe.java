@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.provider.Settings;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -48,7 +47,6 @@ public class GiveMe {
 
     public boolean onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == SETTING_REQUEST_CODE) {
-            Log.d("pttt", "requestCode: " + requestCode);
             if (checkPermissionsList(permissionsForResults))
                 grantListener.onGranted(true);
             else if (permissionsForResults != null) {
@@ -110,11 +108,14 @@ public class GiveMe {
 
     /**
      * request the user to grant permissions from app setting
+     * set permissions for check on onActivityResult method when return from app setting.
      *
+     * @param permissions-   String array of permissions
      * @param msg            - String: message that will show to the user. here you can explain why you need the permissions
      * @param dialogListener - DialogListener: callback to perform on buttons click
      */
-    public void askPermissionsFromSetting(String msg, DialogListener dialogListener) {
+    public void askPermissionsFromSetting(String msg, String[] permissions, DialogListener dialogListener) {
+        permissionsForResults = permissions;
         new AlertDialog.Builder(activity)
                 .setTitle("Permission denied")
                 .setMessage(msg)
@@ -136,13 +137,15 @@ public class GiveMe {
 
     /**
      * request the user to grant permissions from app setting
+     * set permissions for check on onActivityResult method when return from app setting.
      *
+     * @param permissions-   String array of permissions
      * @param msg            - String: message that will show to the user. here you can explain why you need the permissions
      * @param dialogListener - DialogListener: callback to perform on buttons click
      */
-    public void askPermissionsFromSetting(String msg, @NonNull GrantListener grantListener, DialogListener dialogListener) {
+    public void askPermissionsFromSetting(String msg, String[] permissions, @NonNull GrantListener grantListener, DialogListener dialogListener) {
         setGrantListener(grantListener);
-        askPermissionsFromSetting(msg, dialogListener);
+        askPermissionsFromSetting(msg, permissions, dialogListener);
 
     }
 
@@ -180,7 +183,7 @@ public class GiveMe {
         if (shouldShowRequestPermissionRationaleForAllPermissions(notGranted) || //asked in the past but "don't ask me again" set off
                 !isPermissionsListAskedBefore(notGranted)) // never asked before
             askForPermission(notGranted);
-        else askPermissionsFromSetting(msg, dialogListener);
+        else askPermissionsFromSetting(msg, permissions, dialogListener);
 
     }
 
@@ -323,26 +326,26 @@ public class GiveMe {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         activity.startActivityForResult(intent, SETTING_REQUEST_CODE);
     }
-
-    /**
-     * set permissions for check on onActivityResult method when return from app setting.
-     *
-     * @param permissions- String array of permissions
-     * @param listener     - GrantListener - replace the existing listener - set as default
-     */
-    private void setPermissionsForResults(String[] permissions, GrantListener listener) {
-        permissionsForResults = permissions;
-    }
-
-    /**
-     * set permissions for check on onActivityResult method when return from app setting.
-     * using the default  grantListener
-     *
-     * @param permissions - String array of permissions
-     */
-    private void setPermissionsForResults(String[] permissions) {
-        setPermissionsForResults(permissions, grantListener);
-    }
+//
+//    /**
+//     * set permissions for check on onActivityResult method when return from app setting.
+//     *
+//     * @param permissions- String array of permissions
+//     * @param listener     - GrantListener - replace the existing listener - set as default
+//     */
+//    private void setPermissionsForResults(String[] permissions, GrantListener listener) {
+//        permissionsForResults = permissions;
+//    }
+//
+//    /**
+//     * set permissions for check on onActivityResult method when return from app setting.
+//     * using the default  grantListener
+//     *
+//     * @param permissions - String array of permissions
+//     */
+//    private void setPermissionsForResults(String[] permissions) {
+//        setPermissionsForResults(permissions, grantListener);
+//    }
 
     /**
      * check if permissions asked in the past
@@ -397,7 +400,6 @@ public class GiveMe {
     private boolean shouldShowRequestPermissionRationaleForAllPermissions(@NonNull String[] permissions) {
         for (String permission : permissions) {
             if (!shouldShowRequestPermissionRationale(permission)) {
-                Log.d("pttt", "shouldShowRequestPermissionRationaleForAllPermissions: return false ");
                 return false;
             }
         }
