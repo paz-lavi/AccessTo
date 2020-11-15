@@ -330,7 +330,7 @@ public class GiveMe {
      * @param permissions- String array of permissions
      * @param listener     - GrantListener - replace the existing listener - set as default
      */
-    public void setPermissionsForResults(String[] permissions, GrantListener listener) {
+    private void setPermissionsForResults(String[] permissions, GrantListener listener) {
         permissionsForResults = permissions;
     }
 
@@ -340,7 +340,7 @@ public class GiveMe {
      *
      * @param permissions - String array of permissions
      */
-    public void setPermissionsForResults(String[] permissions) {
+    private void setPermissionsForResults(String[] permissions) {
         setPermissionsForResults(permissions, grantListener);
     }
 

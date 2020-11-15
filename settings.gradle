@@ -1,0 +1,3 @@
+include ':Access To Lib'
+include ':app'
+rootProject.name = "Access To"

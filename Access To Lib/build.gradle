@@ -1,3 +1,6 @@
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.paz-lavi'
+
 plugins {
     id 'com.android.library'
 }
@@ -34,7 +37,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'org.jetbrains:annotations:15.0'
-    implementation 'androidx.security:security-crypto:1.0.0-rc01'
+    implementation 'androidx.security:security-crypto:1.1.0-alpha02'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
