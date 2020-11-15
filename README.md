@@ -4,7 +4,8 @@
 ## Table of Contents
 * [What Is It for](https://github.com/paz-lavi/AccessTo/blob/master/README.md#what-is-it-for)
 * [Sample App](https://github.com/paz-lavi/AccessTo/blob/master/README.md#sample-app)
-* [Intgration](https://github.com/paz-lavi/AccessTo/blob/master/README.md#integration)
+* [Integration](https://github.com/paz-lavi/AccessTo/blob/master/README.md#integration)
+* [Debug Logs](https://github.com/paz-lavi/AccessTo/blob/master/README.md#debug-logs)
 * [How To Use](https://github.com/paz-lavi/AccessTo/blob/master/README.md#how-to-use)
 * [API](https://github.com/paz-lavi/AccessTo/blob/master/README.md#api)
 * [Callbacks](https://github.com/paz-lavi/AccessTo/blob/master/README.md#callbacks)
@@ -14,7 +15,7 @@
 ## What Is It for
 
 An android package to handle permissions easily. With this package, you will never get stuck on "don't ask me again".
-Ask permissions with dialog and transfer to the app setting to garnt permissions if needed.
+Ask permissions with dialog and transfer to the app setting to grant permissions if needed.
 
 ## Sample App
 Sample app can be found [here](https://github.com/paz-lavi/AccessToDemo)
@@ -22,7 +23,7 @@ Sample app can be found [here](https://github.com/paz-lavi/AccessToDemo)
 ## Integration
 
 Add it in your root build.gradle at the end of repositories:
-```css
+```Java
 	allprojects {
 		repositories {
 			...
@@ -32,9 +33,9 @@ Add it in your root build.gradle at the end of repositories:
 ```
 Add the dependency
 
-```css
+```Java
 	dependencies {
-	        implementation 'com.github.paz-lavi:AccessTo:1.0.7'
+	    implementation 'com.github.paz-lavi:AccessTo:1.0.8'
 	}
 ```
 ##  How To Use
@@ -62,7 +63,7 @@ Add the dependency
 or
 ```Java
 GiveMe giveMe = new GiveMe(this, new GrantListener() {  
-    @Override  
+  @Override
   public void onGranted(boolean allGranted) {  
           
     }  
@@ -81,20 +82,26 @@ GiveMe giveMe = new GiveMe(this, new GrantListener() {
 
 **2.** Add the next methods to your activity
 ```Java
-@Override  
-public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {  
-    super.onRequestPermissionsResult(requestCode, permissions, grantResults);  
-    giveMe.onRequestPermissionsResult(requestCode, permissions, grantResults);  
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        giveMe.onRequestPermissionsResult(requestCode, permissions, grantResults);
 }  
   
-@Override  
-protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {  
-    super.onActivityResult(requestCode, resultCode, data);  
-    giveMe.onActivityResult(requestCode, resultCode, data);  
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        giveMe.onActivityResult(requestCode, resultCode, data);
 }
 ```
 
 **3.** Now you can use any of the API method
+
+## Debug Logs
+Add the next line to enable debug logs.
+```Java
+giveMe.setDebug(true);
+```
 
 ## API
 ### Note: when using method without passing GrantListener the libary will use the last used GrantListener. 
