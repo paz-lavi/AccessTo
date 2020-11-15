@@ -1,7 +1,7 @@
 # Welcome to Access To!
 
 [![](https://jitpack.io/v/paz-lavi/AccessTo.svg)](https://jitpack.io/#paz-lavi/AccessTo) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/paz-lavi/AccessTo/blob/master/LICENSE)
-## What Is for
+## What Is It for
 
 An android package to handle permissions easily. With this package, you will never get stuck on "don't ask me again".
 Ask permissions with dialog and transfer to the app setting to garnt permissions if needed.
@@ -70,7 +70,7 @@ GiveMe giveMe = new GiveMe(this, new GrantListener() {
 @Override  
 public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {  
     super.onRequestPermissionsResult(requestCode, permissions, grantResults);  
-	giveMe.onRequestPermissionsResult(requestCode, permissions, grantResults);  
+    giveMe.onRequestPermissionsResult(requestCode, permissions, grantResults);  
 }  
   
 @Override  
