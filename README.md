@@ -5,6 +5,10 @@
 
 An android package to handle permissions easily. With this package, you will never get stuck on "don't ask me again".
 Ask permissions with dialog and transfer to the app setting to garnt permissions if needed.
+
+## Sample App
+Sample app can be found [here](https://github.com/paz-lavi/AccessToDemo)
+
 ## Integration
 
 Add it in your root build.gradle at the end of repositories:
@@ -20,7 +24,7 @@ Add the dependency
 
 ```css
 	dependencies {
-	        implementation 'com.github.paz-lavi:AccessTo:Tag'
+	        implementation 'com.github.paz-lavi:AccessTo:1.0.7'
 	}
 ```
 ##  How To Use
