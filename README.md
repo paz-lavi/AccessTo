@@ -35,7 +35,7 @@ Add the dependency
 
 ```Java
 	dependencies {
-	    implementation 'com.github.paz-lavi:AccessTo:1.0.8'
+	    implementation 'com.github.paz-lavi:AccessTo:1.0.9'
 	}
 ```
 ##  How To Use
