@@ -1,6 +1,6 @@
 # Welcome to Access To!
 
-[![](https://jitpack.io/v/paz-lavi/AccessTo.svg)](https://jitpack.io/#paz-lavi/AccessTo) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/paz-lavi/AccessTo/blob/master/LICENSE)
+[![](https://jitpack.io/v/paz-lavi/AccessTo.svg)](https://jitpack.io/#paz-lavi/AccessTo) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/paz-lavi/AccessTo/blob/master/LICENSE)  [![GitHub issues](https://img.shields.io/github/issues/paz-lavi/AccessTo)](https://github.com/paz-lavi/AccessTo/issues) [![GitHub forks](https://img.shields.io/github/forks/paz-lavi/AccessTo)](https://github.com/paz-lavi/AccessTo/network) [![GitHub stars](https://img.shields.io/github/stars/paz-lavi/AccessTo)](https://github.com/paz-lavi/AccessTo/stargazers)
 ## Table of Contents
 * [What Is It for](https://github.com/paz-lavi/AccessTo/blob/master/README.md#what-is-it-for)
 * [Sample App](https://github.com/paz-lavi/AccessTo/blob/master/README.md#sample-app)
