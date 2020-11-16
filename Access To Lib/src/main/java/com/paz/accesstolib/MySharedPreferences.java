@@ -2,9 +2,11 @@ package com.paz.accesstolib;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.security.keystore.KeyGenParameterSpec;
+import android.security.keystore.KeyProperties;
 
 import androidx.security.crypto.EncryptedSharedPreferences;
-import androidx.security.crypto.MasterKeys;
+import androidx.security.crypto.MasterKey;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
@@ -15,17 +17,25 @@ class MySharedPreferences {
 
 
     public MySharedPreferences(Context appContext) {
-        String masterKeyAlias = null;
         try {
-            masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC);
 
+            KeyGenParameterSpec spec = new KeyGenParameterSpec.Builder(
+                    MasterKey.DEFAULT_MASTER_KEY_ALIAS,
+                    KeyProperties.PURPOSE_ENCRYPT | KeyProperties.PURPOSE_DECRYPT)
+                    .setBlockModes(KeyProperties.BLOCK_MODE_GCM)
+                    .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_NONE)
+                    .setKeySize(MasterKey.DEFAULT_AES_GCM_MASTER_KEY_SIZE)
+                    .build();
+
+            MasterKey masterKey = new MasterKey.Builder(appContext)
+                    .setKeyGenParameterSpec(spec)
+                    .build();
             sharedPreferences = EncryptedSharedPreferences.create(
-                    "asked_permissions",
-                    masterKeyAlias,
                     appContext,
+                    "Permissions-SP",
+                    masterKey, // masterKey created above
                     EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-                    EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-            );
+                    EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM);
         } catch (GeneralSecurityException e) {
             e.printStackTrace();
         } catch (IOException e) {
